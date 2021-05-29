@@ -10,7 +10,7 @@ go run app.go  -host=<host> -port=<port>
 e.g.(go run app.go  -host=127.0.0.1 -port=5000)
 
 ```
-open terminal and type:-
+### open terminal and type:-
 ```
 telnet <host> <port>
 
