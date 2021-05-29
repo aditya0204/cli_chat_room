@@ -2,7 +2,7 @@
 command line chat room helps you to create and join chat room over cli and chat on cli.
 
 ### to run application
-###run server:-
+### run server:-
 ```
 cd server/
 go run app.go  -host=<host> -port=<port>
