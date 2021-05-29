@@ -2,13 +2,13 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io"
 	"log"
 	"net"
 	"os"
 	"strings"
-
 	//"github.com/google/uuid"
 )
 
@@ -141,14 +141,18 @@ func writemsg(conn net.Conn){
 
 
 func main() {
-
-	l, err:=net.Listen("tcp",":5000")
+    host:= flag.String("host","127.0.0.1","host address")
+    port:= flag.String("port","5000","port address")
+	flag.Parse()
+    addr:=*host+":"+*port
+	l, err:=net.Listen("tcp",addr)
 	if err!=nil{
 		fmt.Println(err)
 		return
 	}
 
-	fmt.Println("Server is running at tcp5000")
+	fmt.Printf("Server is running at tcp %s \n\nopen new terminal and type => telnet <host> <port>" +
+		" (e.g. telnet 127.0.0.1 5000)  ",addr)
 
 	for {
 		conn,err:=l.Accept()
